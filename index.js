@@ -16,11 +16,12 @@ switch (cvalue) {
 }
     return cchoice;
 }
-console.log (getComputerChoice());
+
 //Create a function named getHumanChoice to prompt for user input to select rock, paper, or scissors.
 //store user input in getHumanChoice
 function getHumanChoice(){
-let hvalue = parseInt (prompt ("Choose your weapon: Enter 1 for 'Rock'. Enter 2 for 'Paper'. Enter 3 for 'Scissors'."));
+let hvalue= parseInt (prompt ("Choose your weapon: Enter 1 for 'Rock'. Enter 2 for 'Paper'. Enter 3 for 'Scissors'."));
+console.log (hvalue);
 switch (hvalue) {
     case 1: hchoice = "rock";
     break;
@@ -28,7 +29,20 @@ switch (hvalue) {
     break;
     case 3: hchoice = "scissors";
     break;
+    default: alert ("Read the instructions and try again."), getHumanChoice();
 }
-if (hvalue = 3) {alert ("oink")} else {alert ("moo")};
+return hchoice;
 }
-console.log (getHumanChoice())
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+console.log (humanSelection,computerSelection);
+
+function playRound (humanChoice, computerChoice) {
+    if(humanChoice==computerChoice) {alert ("draw")}
+        else if ((humanChoice == "rock" && computerChoice !=="paper") || (humanChoice=="paper" && computerChoice !=="scissors") || (humanChoice=="scissors" && computerChoice !== "rock")) {
+        alert ("winner!- "+ humanChoice+" beats "+computerChoice)
+    } else alert ("loser- "+computerChoice+" beats "+humanChoice)
+  }
+
+  playRound (humanSelection,computerSelection);
