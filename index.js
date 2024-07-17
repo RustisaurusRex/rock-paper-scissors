@@ -7,11 +7,11 @@ function getComputerChoice() {
     let cvalue = Math.floor(Math.random() *3 +1);
     console.log (cvalue);
 switch (cvalue) {
-    case 1: cchoice = "rock";
+    case 1: cchoice = "Rock";
     break;
-    case 2: cchoice = "paper";
+    case 2: cchoice = "Paper";
     break;
-    case 3: cchoice = "scissors";
+    case 3: cchoice = "Scissors";
     break;
 }
     return cchoice;
@@ -23,11 +23,11 @@ function getHumanChoice(){
 let hvalue= parseInt (prompt ("Choose your weapon: Enter 1 for 'Rock'. Enter 2 for 'Paper'. Enter 3 for 'Scissors'."));
 console.log (hvalue);
 switch (hvalue) {
-    case 1: hchoice = "rock";
+    case 1: hchoice = "Rock";
     break;
-    case 2: hchoice = "paper";
+    case 2: hchoice = "Paper";
     break;
-    case 3: hchoice = "scissors";
+    case 3: hchoice = "Scissors";
     break;
     default: alert ("Read the instructions and try again."), getHumanChoice();
 }
@@ -38,11 +38,15 @@ const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 console.log (humanSelection,computerSelection);
 
+let humanScore = 0;
+let computerScore = 0;
+
 function playRound (humanChoice, computerChoice) {
     if(humanChoice==computerChoice) {alert ("draw")}
-        else if ((humanChoice == "rock" && computerChoice !=="paper") || (humanChoice=="paper" && computerChoice !=="scissors") || (humanChoice=="scissors" && computerChoice !== "rock")) {
-        alert ("winner!- "+ humanChoice+" beats "+computerChoice)
-    } else alert ("loser- "+computerChoice+" beats "+humanChoice)
+        else if ((humanChoice == "Rock" && computerChoice !=="Paper") || (humanChoice=="Paper" && computerChoice !=="Scissors") || (humanChoice=="Scissors" && computerChoice !== "Rock")) {
+        alert ("Winner!- "+ humanChoice+" beats "+computerChoice+"."), (humanScore)++
+    } else alert ("Loser- "+computerChoice+" beats "+humanChoice+"."), (computerScore)++;
   }
 
   playRound (humanSelection,computerSelection);
+  console.log ("human: "+humanScore+" | computer: "+computerScore);
