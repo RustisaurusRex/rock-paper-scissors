@@ -16,7 +16,6 @@ switch (cvalue) {
 }
     return cchoice;
 }
-
 //Create a function named getHumanChoice to prompt for user input to select rock, paper, or scissors.
 //store user input in getHumanChoice
 function getHumanChoice(){
@@ -33,29 +32,34 @@ switch (hvalue) {
 }
 return hchoice;
 }
-
+//Declare initial score variables
 let humanScore = 0;
 let computerScore = 0;
 
+//Construct function to house game so that it can be called in the iterative loop
 function playGame() {
+
+//Make reuslts from getHumanChoice function and getComputerChoice function acessible inside this function
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 console.log (humanSelection,computerSelection);
 
+//Build a function inside playGame to play one round and declare the winner's score
+//Add score iteration
 function playRound (humanChoice, computerChoice) {
     if(humanChoice==computerChoice) {alert ("draw")}
         else if ((humanChoice == "Rock" && computerChoice !=="Paper") || (humanChoice=="Paper" && computerChoice !=="Scissors") || (humanChoice=="Scissors" && computerChoice !== "Rock")) {
         alert ("Winner!- "+ humanChoice+" beats "+computerChoice+"."), (humanScore)++
     } else alert ("Loser- "+computerChoice+" beats "+humanChoice+"."), (computerScore)++;
-  console.log ("h: "+humanScore+" | c: "+computerScore);
 }
 
+//Play a single round using the human and computer selections
   playRound (humanSelection,computerSelection);
   return console.log ("human: "+humanScore+" | computer: "+computerScore);
 }
 
-
-for (let i = 0; humanScore < 3 && computerScore < 3; i++) {
+//Have the playGame function repeat until the score threshold has been reached
+for (let i = 0; humanScore < 5 && computerScore < 5; i++) {
     playGame();
 }
 
