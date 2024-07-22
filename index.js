@@ -34,19 +34,28 @@ switch (hvalue) {
 return hchoice;
 }
 
+let humanScore = 0;
+let computerScore = 0;
+
+function playGame() {
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 console.log (humanSelection,computerSelection);
-
-let humanScore = 0;
-let computerScore = 0;
 
 function playRound (humanChoice, computerChoice) {
     if(humanChoice==computerChoice) {alert ("draw")}
         else if ((humanChoice == "Rock" && computerChoice !=="Paper") || (humanChoice=="Paper" && computerChoice !=="Scissors") || (humanChoice=="Scissors" && computerChoice !== "Rock")) {
         alert ("Winner!- "+ humanChoice+" beats "+computerChoice+"."), (humanScore)++
     } else alert ("Loser- "+computerChoice+" beats "+humanChoice+"."), (computerScore)++;
-  }
+  console.log ("h: "+humanScore+" | c: "+computerScore);
+}
 
   playRound (humanSelection,computerSelection);
-  console.log ("human: "+humanScore+" | computer: "+computerScore);
+  return console.log ("human: "+humanScore+" | computer: "+computerScore);
+}
+
+for (let index = 0; index < 3; index++) {
+    playGame();
+    
+}
+
