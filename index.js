@@ -54,8 +54,8 @@ function playRound (humanChoice, computerChoice) {
   return console.log ("human: "+humanScore+" | computer: "+computerScore);
 }
 
-for (let index = 0; index < 3; index++) {
+
+for (let i = 0; humanScore < 3 && computerScore < 3; i++) {
     playGame();
-    
 }
 
